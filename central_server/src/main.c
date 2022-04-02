@@ -61,9 +61,6 @@ void central_socket(int id_file) {
   }
 
   memset((char *)&endServ,0,sizeof(endServ)); /* limpa variavel endServ    */
-  // signal(SIGQUIT, handle_signal);
-  // signal(SIGTSTP, handle_signal);
-
   endServ.sin_family 		= AF_INET;           	/* familia TCP/IP   */
   endServ.sin_addr.s_addr 	= inet_addr(IP); 	/* endereco IP      */
   endServ.sin_port 		= htons(PORT);               /* PORTA	    */
