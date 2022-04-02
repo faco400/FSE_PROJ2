@@ -29,12 +29,13 @@ void central_socket(int );
 void print_menu(char *);
 void get_data();
 void send_data();
+void handle_signal(int );
 
 int main () {
   int op;
   system("clear");
   while(1) {
-    printf("\tDigite zero(0) para monitorar o terro\n\tDigite dois(1) para monitorar o primeiro andar\n");
+    printf("\tDigite zero(0) para monitorar o terro\n\tDigite um(1) para monitorar o primeiro andar\n");
     
     scanf("%d", &op);
     if(op != 1 && op != 0) {
@@ -52,6 +53,8 @@ void central_socket(int id_file) {
   int     sd;          	      /* socket descriptor       */
   int option = 1;
   unsigned int clienteLength;
+  // signal(SIGQUIT, handle_signal);
+  // signal(SIGTSTP, handle_signal);
 
   /* Cria socket */
   sd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -61,6 +64,7 @@ void central_socket(int id_file) {
   }
 
   memset((char *)&endServ,0,sizeof(endServ)); /* limpa variavel endServ    */
+
   endServ.sin_family 		= AF_INET;           	/* familia TCP/IP   */
   endServ.sin_addr.s_addr 	= inet_addr(IP); 	/* endereco IP      */
   endServ.sin_port 		= htons(PORT);               /* PORTA	    */
@@ -164,3 +168,14 @@ void send_data() {
   }
   sleep(1);
 }
+
+// void handle_signal(int signal) {
+//   printf("\nAguarde...\n");
+//   if (signal == SIGQUIT) {
+//     toggle_gpio_value = true;
+//   }
+//   if (signal == SIGTSTP) {
+//     id_file = id_file == 1 ? 2 : 1;
+//     strcpy(file, read_file(id_file));
+//   }
+// }

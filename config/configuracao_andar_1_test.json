@@ -6,61 +6,44 @@
         {
           "type": "lampada",
           "tag": "Lâmpada da Sala 101",
-          "gpio": 22
+          "gpio": 3
         },
         {
             "type": "lampada",
             "tag": "Lâmpada da Sala 102",
-            "gpio": 25
+            "gpio": 6
         },
         {
           "type": "lampada",
           "tag": "Lâmpadas do Corredor",
-          "gpio": 8
+          "gpio": 10
         },
         {
             "type": "ar-condicionado",
             "tag": "Ar-Condicionado (1º Andar)",
-            "gpio": 12
+            "gpio": 26
         }
     ],
     "inputs": [
         {
           "type": "presenca",
           "tag": "Sensor de Presença",
-          "gpio": 18
+          "gpio": 1
         },
         {
             "type": "fumaca",
             "tag": "Sensor de Fumaça",
-            "gpio": 24
+            "gpio": 5
         },
         {
           "type": "janela",
           "tag": "Sensor de Janela 101",
-          "gpio": 5
+          "gpio": 21
         },
         {
             "type": "janela",
             "tag": "Sensor de Janela 102",
-            "gpio": 6
-        },
-        {
-          "type": "contagem",
-          "tag": "Sensor de Contagem de Pessoas Entrando no 2º Andar",
-          "gpio": 2
-        },
-        {
-          "type": "contagem",
-          "tag": "Sensor de Contagem de Pessoas Saindo do 2º Andar",
-          "gpio": 3
-        }
-    ],
-    "sensor_temperatura":[
-        {
-          "type": "dth22",
-          "tag": "Sensor de Temperatura e Umidade",
-          "gpio": 21
+            "gpio": 22
         }
     ]
 }

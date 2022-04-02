@@ -1,71 +1,69 @@
 {
-    "ip_servidor_central": "192.168.0.53",
-    "porta_servidor_central": 10024,
-    "ip_servidor_distribuido": "192.168.0.52",
-    "porta_servidor_distribuido": 10124,
+    "ip": "192.168.0.53",
+    "porta": 10124,
     "nome": "Térreo",
     "outputs": [
         {
           "type": "lampada",
           "tag": "Lâmpada da Sala T01",
-          "gpio": 4
+          "gpio": 7
         },
         {
             "type": "lampada",
             "tag": "Lâmpada da Sala T02",
-            "gpio": 17
+            "gpio": 0
         },
         {
           "type": "lampada",
           "tag": "Lâmpadas do Corredor Terreo",
-          "gpio": 27
+          "gpio": 3
         },
         {
             "type": "ar-condicionado",
             "tag": "Ar-Condicionado Terreo",
-            "gpio": 7
+            "gpio": 11
         },
         {
             "type": "aspersor",
             "tag": "Aspersor de Água (Incêndio)",
-            "gpio": 16
+            "gpio": 27
         }
     ],
     "inputs": [
         {
           "type": "presenca",
           "tag": "Sensor de Presença",
-          "gpio": 26
+          "gpio": 25
         },
         {
             "type": "fumaca",
             "tag": "Sensor de Fumaça",
-            "gpio": 23
+            "gpio": 4
         },
         {
           "type": "janela",
           "tag": "Sensor de Janela T01",
-          "gpio": 9
+          "gpio": 13
         },
         {
             "type": "janela",
             "tag": "Sensor de Janela T02",
-            "gpio": 11
+            "gpio": 14
         },
         {
             "type": "porta",
             "tag": "Sensor de Porta Entrada",
-            "gpio": 10
+            "gpio": 12
         },
         {
             "type": "contagem",
             "tag": "Sensor de Contagem de Pessoas Entrando no Prédio",
-            "gpio": 13
+            "gpio": 23
         },
         {
             "type": "contagem",
             "tag": "Sensor de Contagem de Pessoas Saindo do Prédio",
-            "gpio": 19
+            "gpio": 24
         }
     ],
     "sensor_temperatura":[

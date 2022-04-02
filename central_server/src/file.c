@@ -4,7 +4,7 @@
 
 char *read_file(int path)
 {
-  char *fp = path == 2 ? "../config/configuracao_andar_1.json" : "../config/configuracao_andar_terreo.json";
+  char *fp = path == 1 ? "../config/configuracao_andar_1_test.json" : "../config/configuracao_andar_terreo_test.json";
   long length;
   FILE *file = fopen(fp, "r");
   if (file)
