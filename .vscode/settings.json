@@ -1,6 +1,0 @@
-{
-  "files.associations": {
-    "wiringpi.h": "c",
-    "cjson.h": "c"
-  }
-}
