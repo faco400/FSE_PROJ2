@@ -53,8 +53,8 @@ void central_socket(int id_file) {
   int     sd;          	      /* socket descriptor       */
   int option = 1;
   unsigned int clienteLength;
-  // signal(SIGQUIT, handle_signal);
-  // signal(SIGTSTP, handle_signal);
+  signal(SIGQUIT, handle_signal);
+  signal(SIGTSTP, handle_signal);
 
   /* Cria socket */
   sd = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -70,7 +70,7 @@ void central_socket(int id_file) {
   endServ.sin_port 		= htons(PORT);               /* PORTA	    */
 
   /* liga socket a porta e ip */
-  setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(option)); // Estudar esse comando
+  setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, &option, sizeof(option));
   if (bind(sd, (struct sockaddr *)&endServ, sizeof(endServ)) < 0) {
     fprintf(stderr,"Ligacao Falhou!\n");
     exit(1); 
@@ -169,13 +169,13 @@ void send_data() {
   sleep(1);
 }
 
-// void handle_signal(int signal) {
-//   printf("\nAguarde...\n");
-//   if (signal == SIGQUIT) {
-//     toggle_gpio_value = true;
-//   }
-//   if (signal == SIGTSTP) {
-//     id_file = id_file == 1 ? 2 : 1;
-//     strcpy(file, read_file(id_file));
-//   }
-// }
+void handle_signal(int signal) {
+  printf("\nAguarde...\n");
+  if (signal == SIGQUIT) {
+    toggle_gpio_value = true;
+  }
+  if (signal == SIGTSTP) {
+    id_file = id_file == 1 ? 2 : 1;
+    strcpy(file, read_file(id_file));
+  }
+}
