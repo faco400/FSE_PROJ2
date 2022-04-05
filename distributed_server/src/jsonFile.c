@@ -2,7 +2,7 @@
 #include "gpio.h"
 #include <string.h>
 
-void parse_json_string(char *json_string, Server *server)
+void parser_json(char *json_string, Server *server)
 {
     cJSON *json = cJSON_Parse(json_string);
     cJSON *porta, *ip, *outputs, *output, *inputs, *input, *nome;
@@ -12,7 +12,7 @@ void parse_json_string(char *json_string, Server *server)
     server->inputs = cJSON_GetObjectItemCaseSensitive(json, "inputs");
 }
 
-void final_json(char **json_string, Server *server, int temperature, int humidity, int *total_people)
+void end_json(char **json_string, Server *server, int temperature, int humidity, int *total_people)
 {
     cJSON *gpio_object = cJSON_CreateObject();
     int count = 2;
@@ -43,8 +43,7 @@ void final_json(char **json_string, Server *server, int temperature, int humidit
                 int gpio = cJSON_GetObjectItemCaseSensitive(item, "gpio")->valueint;
                 if(gpio == 23){
                     *total_people += 1;
-                }
-                else {
+                } else {
                     *total_people -= 1;
                 }
             }

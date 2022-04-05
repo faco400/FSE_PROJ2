@@ -9,7 +9,7 @@ typedef struct Server {
     cJSON *outputs, *inputs;
 } Server;
 
-void parse_json_string(char *json_string, Server *server);
-void final_json(char **json_string, Server *server, int temperature, int humidity, int *total_people);
+void parser_json(char *json_string, Server *server);
+void end_json(char **json_string, Server *server, int temperature, int humidity, int *total_people);
 
 #endif /* JSONFILE_H_ */

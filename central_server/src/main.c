@@ -35,6 +35,7 @@ int main () {
   int op;
   system("clear");
   while(1) {
+    printf("\t<<--MENU-->>\n");
     printf("\tDigite zero(0) para monitorar o terro\n\tDigite um(1) para monitorar o primeiro andar\n");
     
     scanf("%d", &op);
@@ -121,22 +122,22 @@ void print_menu(char *file) {
     cJSON *inputs = cJSON_GetObjectItemCaseSensitive(json, "input");
     cJSON *pin = NULL;
     printf("Monitorando: %s\n", nome);
-    printf("Temperatura: %d⁰C\t Úmidade: %d%%\t Pessoas no Prédio: %d\n", temp, hum, total_people);
-    printf("\n\nOutput:\n\n       Pino\t\tValor\t\t\tTag\n");
+    printf("Temperatura: %d⁰C | Úmidade: %d%% | Pessoas no Prédio: %d\n", temp, hum, total_people);
+    printf("\nOutput:\n\nPin  Valor  Tag\n");
     cJSON_ArrayForEach(pin, outputs) {
       int gpio = cJSON_GetObjectItemCaseSensitive(pin, "gpio")->valueint;
       char *tag = cJSON_GetObjectItemCaseSensitive(pin, "tags")->valuestring;
       int value = cJSON_GetObjectItemCaseSensitive(pin, "value")->valueint;
       char *status = value ? "ON " : "OFF";
-      printf("|\t%02d\t|\t%s\t|\t%s\n", gpio, status, tag);
+      printf("| %02d | %s | %s |\n", gpio, status, tag);
     }
-    printf("\n\nInput:\n\n       Pino\t\tValor\t\t\tTag\n");
+    printf("\nInput:\n\nPin  Valor  Tag\n");
     cJSON_ArrayForEach(pin, inputs) {
       int gpio = cJSON_GetObjectItemCaseSensitive(pin, "gpio")->valueint;
       char *tag = cJSON_GetObjectItemCaseSensitive(pin, "tags")->valuestring;
       int value = cJSON_GetObjectItemCaseSensitive(pin, "value")->valueint;
       char *status = value ? "ON " : "OFF";
-      printf("|\t%02d\t|\t%s\t|\t%s\n", gpio, status, tag);
+      printf("| %02d | %s | %s |\n", gpio, status, tag);
     }
   }
 }
