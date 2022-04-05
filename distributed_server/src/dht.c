@@ -56,14 +56,14 @@ void read_dht_data(int *temperature, int *humidity, int count) {
         *temperature = c;
     }
     else {
-        printf("Erro ao ler temperatura e humidade. Realizando nova leitura\n");
+        printf("Error. Could not read temperature and humidity. Trying again...\n");
         delay(100);
         if (count != MAX_STACK)
             read_dht_data(temperature, humidity, count + 1);
         else {
             *humidity *= 1;
             *temperature *= 1;
-            printf("Não é possível ler o sensor DHT22\nUtlizando valor da leitura anterior\n");
+            printf("Error utilizing DTH22. \nUsing the latest one. \n");
         }
     }
 }
